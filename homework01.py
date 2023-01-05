@@ -32,9 +32,8 @@ polynom1 = get_polynomial(ratios)
 ratios1 = get_ratios(k, -100, 100)
 polynom2 = get_polynomial(ratios1)
 
-
-with open('polynomial_1.txt', 'w') as data:
+with open('polynomial_1.txt', 'w', encoding='utf-8') as data:
     data.write(polynom1 + '=0')
 
-with open('polynomial_2.txt', 'w') as data:
+with open('polynomial_2.txt', 'w', encoding='utf-8') as data:
     data.write(polynom2 + '=0')
