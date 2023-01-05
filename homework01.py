@@ -19,36 +19,22 @@ def get_ratios(degree, min_val, max_val):
     koef = [randint(min_val, max_val) for i in range(degree+1)]
     return koef
 
-def get_polynomial(list_ratios):
-    poly = '+'.join([f'{(j,"")[j==1]}x^{i}' for i, j in enumerate(list_ratios) if j][::-1]). \
+def get_polynomial(koef):
+    poly = '+'.join([f'{(j,"")[j==1]}x^{i}' for i, j in enumerate(koef) if j][::-1]). \
         replace('x^1', 'x').\
         replace('+-', '-').\
-        replace('x^0', '').\
-        replace('^2', '\u00B2')
+        replace('x^0', '')
     return poly
-
-indexes = {'1': "\u00B9",
-           '2': "\u00B2",
-           '3': "\u00B3",
-           '4': "\u2074",
-           '5': "\u2075",
-           '6': "\u2076",
-           '7': "\u2077",
-           '8': "\u2078",
-           '9': "\u2079",
-           }
 
 ratios = get_ratios(k, -100, 100)
 polynom1 = get_polynomial(ratios)
-print(polynom1, '=0', sep='')
 
 ratios1 = get_ratios(k, -100, 100)
 polynom2 = get_polynomial(ratios1)
-print(polynom2, '=0', sep='')
 
 
-#with open('polynomial_1.txt', 'w') as data:
- #   data.write(polynom1)
+with open('polynomial_1.txt', 'w') as data:
+    data.write(polynom1 + '=0')
 
-#with open('polynomial_2.txt', 'w') as data:
- #   data.write(polynom2)
+with open('polynomial_2.txt', 'w') as data:
+    data.write(polynom2 + '=0')
